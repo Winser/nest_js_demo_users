@@ -16,10 +16,10 @@ export class UsersController {
 
     @Get(["get", "get/:id"])
     async get(@Param("id") id: number, @Query() userQueryDto: UserQueryDto) {
-        const user = await this.usersService.get({ ...userQueryDto, id });
+        const users = await this.usersService.get({ ...userQueryDto, id });
         return {
             success: true, result: {
-                users: [user]
+                users: users
             }
         };
     }
